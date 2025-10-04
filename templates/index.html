@@ -5,23 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AI Email Assistant</title>
     <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
-      form { max-width: 700px; display: grid; gap: 1rem; }
-      textarea { min-height: 180px; padding: 0.75rem; font-size: 1rem; }
-      button { width: fit-content; padding: 0.6rem 1rem; font-size: 1rem; cursor: pointer; }
-      label { font-weight: 600; }
+      body { 
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; 
+        margin: 2rem; 
+      }
+      form { 
+        max-width: 700px; 
+        display: grid; 
+        gap: 1rem; 
+      }
+      textarea { 
+        min-height: 180px; 
+        padding: 0.75rem; 
+        font-size: 1rem; 
+      }
+      button { 
+        width: fit-content; 
+        padding: 0.6rem 1rem; 
+        font-size: 1rem; 
+        cursor: pointer; 
+      }
+      label { 
+        font-weight: 600; 
+      }
     </style>
   </head>
   <body>
     <h1>AI Email Assistant</h1>
+
     <form method="post" action="/">
       <div>
         <label for="instructions">Email instructions</label>
       </div>
-      <textarea id="instructions" name="instructions" placeholder="Describe the email you want to craft..."></textarea>
+      <textarea 
+        id="instructions" 
+        name="instructions" 
+        placeholder="Describe the email you want to craft..."></textarea>
       <button type="submit">Submit</button>
     </form>
+
+    {% if generated_email %}
+      <hr>
+      <h2>Generated Output:</h2>
+      <p>{{ generated_email }}</p>
+    {% endif %}
   </body>
-  </html>
-
-
+</html>
